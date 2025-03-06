@@ -26,6 +26,10 @@ def test_case():
         end_idx -= 1
     print(pairs)
     result = len(bigger)
+    if len(bigger) < len(pairs):
+        result = (len(pairs) - len(bigger)) // 2 + 1
+    result -= 1
+    print(result)
 
 t = int(input())
 for i in range(t):
