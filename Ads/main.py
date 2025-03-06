@@ -10,6 +10,22 @@ def test_case():
             bigger.append(x)
         else:
             smaller.append(x)
+    smaller.sort()
+    pairs = []
+    start_idx = 0
+    end_idx = len(smaller) - 1
+    while start_idx <= end_idx:
+        if start_idx == end_idx:
+            pairs.append([smaller[start_idx]])
+            break
+        if smaller[start_idx] + smaller[end_idx] < k:
+            pairs.append([smaller[start_idx], smaller[end_idx]])
+            start_idx += 1
+        else:
+            pairs.append([smaller[end_idx]])
+        end_idx -= 1
+    print(pairs)
+    result = len(bigger)
 
 t = int(input())
 for i in range(t):
